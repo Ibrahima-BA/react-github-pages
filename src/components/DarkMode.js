@@ -3,7 +3,7 @@ import { useState } from "react";
 import WbSunnyOutlinedIcon from "@material-ui/icons/WbSunnyOutlined";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
 
-function DarkMode() {
+const DarkMode = () => {
   const [themeMode, setThemeMode] = useState("light");
   let clickedClass = "clicked";
   const body = document.body;
@@ -14,6 +14,7 @@ function DarkMode() {
   if (localStorage) {
     theme = localStorage.getItem("theme");
   }
+
   if (theme === lightTheme || theme === darkTheme) {
     body.classList.add(theme);
   } else {
@@ -30,23 +31,24 @@ function DarkMode() {
       body.classList.replace(lightTheme, darkTheme);
       e.target.classList.add(clickedClass);
       localStorage.setItem("theme", "dark");
-      theme = lightTheme;
+      theme = darkTheme;
     }
     setThemeMode(theme);
   };
+
   return (
     <button
       className={theme === "dark" ? clickedClass : ""}
       id="darkMode"
       onClick={(e) => switchTheme(e)}
     >
-      {themeMode === "light " || theme === "light" ? (
+      {themeMode === "light" || theme === "light" ? (
         <Brightness2OutlinedIcon />
       ) : (
         <WbSunnyOutlinedIcon />
       )}
     </button>
   );
-}
+};
 
 export default DarkMode;
