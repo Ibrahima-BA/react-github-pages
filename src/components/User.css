@@ -9,12 +9,11 @@
   text-align: left;
   padding: var(--spacing-3) 0 var(--spacing-1) 0;
 }
-.user__infos {
+.user__info {
   display: flex;
 }
-
-.user__infos svg {
-  color: var (--icon-color);
+.user__info svg {
+  color: var(--icon-color);
   margin-right: 1rem;
 }
 .dark .user__info svg {
